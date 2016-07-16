@@ -1,39 +1,39 @@
 # If you add a page, you must add it to the index here
 pages:
   - Home: 'index.md'
-  - Style Guide: 'styleguide.md'
-  - Getting Started:
+  - 문서 스타일 가이드: 'styleguide.md'
+  - 시작하기:
     - Home: 'gettingstarted/index.md'
-    - Structuring Your Mod: 'gettingstarted/structuring.md'
-    - Forge Update Checker: 'gettingstarted/autoupdate.md'
-  - Blocks:
+    - 모드 기본구조 작성하기: 'gettingstarted/structuring.md'
+    - Forge 업데이트 확인: 'gettingstarted/autoupdate.md'
+  - 블록(Block):
     - Home: 'blocks/blocks.md'
-    - Interaction: 'blocks/interaction.md'
-  - Blockstates:
-    - Intro to Blockstates: 'blockstates/states.md' 
-    - Intro to Blockstate JSONs: 'blockstates/introduction.md'
-    - Forge Blockstate JSON: 'blockstates/forgeBlockstates.md'
-  - Events:
-    - Basic Usage: 'events/intro.md'
-  - Networking:
+    - 상호작용: 'blocks/interaction.md'
+  - 블록 상태(Blockstate):
+    - 블록 상태(Blockstate) 소개: 'blockstates/states.md' 
+    - Blockstate JSON 소개: 'blockstates/introduction.md'
+    - Forge 전용 Blockstate JSON 형식: 'blockstates/forgeBlockstates.md'
+  - 이벤트:
+    - 사용 방법: 'events/intro.md'
+  - 네트워크:
     - Home: 'networking/index.md'
-    - Overview: 'networking/overview.md'
-    - SimpleImpl: 'networking/simpleimpl.md'
-  - Data Storage:
+    - 개관: 'networking/overview.md'
+    - SimpleImpl 사용법: 'networking/simpleimpl.md'
+  - 데이터 관리:
     - Capabilities: 'datastorage/capabilities.md'
     - World Saved Data: 'datastorage/worldsaveddata.md'
     - Extended Entity Properties: 'datastorage/extendedentityproperties.md'
-  - Effects:
-    - Sounds: 'effects/sounds.md'
-  - Conventions:
-    - Versioning: 'conventions/versioning.md'
-    - Locations: 'conventions/locations.md'
-    - Loading Stages: 'conventions/loadstages.md'
-  - Concepts:
-    - Sides: 'concepts/sides.md'
+  - 효과:
+    - 음향: 'effects/sounds.md'
+  - 관례:
+    - 버전 관리: 'conventions/versioning.md'
+    - 파일 위치: 'conventions/locations.md'
+    - 로딩 단계(Loading Stage) 관련: 'conventions/loadstages.md'
+  - 기본 개념:
+    - 측(서버와 클라이언트): 'concepts/sides.md'
 
 # Do not edit in PRs below here
-site_name: Forge Documentation
+site_name: Forge 한글 설명서
 
 markdown_extensions:
   - admonition
