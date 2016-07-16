@@ -1,0 +1,46 @@
+# If you add a page, you must add it to the index here
+pages:
+  - Home: 'index.md'
+  - Style Guide: 'styleguide.md'
+  - Getting Started:
+    - Home: 'gettingstarted/index.md'
+    - Structuring Your Mod: 'gettingstarted/structuring.md'
+    - Forge Update Checker: 'gettingstarted/autoupdate.md'
+  - Blocks:
+    - Home: 'blocks/blocks.md'
+    - Interaction: 'blocks/interaction.md'
+  - Blockstates:
+    - Intro to Blockstates: 'blockstates/states.md' 
+    - Intro to Blockstate JSONs: 'blockstates/introduction.md'
+    - Forge Blockstate JSON: 'blockstates/forgeBlockstates.md'
+  - Events:
+    - Basic Usage: 'events/intro.md'
+  - Networking:
+    - Home: 'networking/index.md'
+    - Overview: 'networking/overview.md'
+    - SimpleImpl: 'networking/simpleimpl.md'
+  - Data Storage:
+    - Capabilities: 'datastorage/capabilities.md'
+    - World Saved Data: 'datastorage/worldsaveddata.md'
+    - Extended Entity Properties: 'datastorage/extendedentityproperties.md'
+  - Effects:
+    - Sounds: 'effects/sounds.md'
+  - Conventions:
+    - Versioning: 'conventions/versioning.md'
+    - Locations: 'conventions/locations.md'
+    - Loading Stages: 'conventions/loadstages.md'
+  - Concepts:
+    - Sides: 'concepts/sides.md'
+
+# Do not edit in PRs below here
+site_name: Forge Documentation
+
+markdown_extensions:
+  - admonition
+  - smarty
+  - sane_lists
+
+extra_css:
+  - css/style_fixes.css
+
+theme: readthedocs
