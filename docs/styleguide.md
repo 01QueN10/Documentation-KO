@@ -16,7 +16,7 @@
 
 MinecraftForge ReadTheDocs 한글화 설명서는 마크다운(Markdown) 형식으로 작성됩니다.
 
-!!! 중요합니다 !!!
+!!! important
 
     들여쓰려면 **스페이스를 두번** 입력해 주세요. 탭을 쓰시면 안됩니다.
 
