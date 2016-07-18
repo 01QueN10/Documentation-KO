@@ -1,54 +1,53 @@
-Structuring Your Mod
+모드 기본구조 작성하기
 ====================
 
-We'll look at how to organize your mod into different files and what those files should do.
+이 문서에서는 모드를 어떻게 체계화하여 여러 파일에 배분해야 하는지, 그리고 이 파일들이 어떤 역할을 맡는지에 대해 다룰 것입니다.
 
-Packaging
+패키지
 ---------
 
-Pick a unique package name. If you own a URL associated with your project, you can use it as your top level package. For example if you own "example.com", you may use `com.example` as your top level package.
+우선, 당신만의 패키지 이름을 정하세요. 만약 당신의 프로젝트에 어떤 URL이 지정되어 있다면, 순서를 반대로 하여 최상위 패키지의 이름으로 사용하시면 됩니다. 예를 들어 "example.com"의 경우 `com.example`을 최상위 패키지로 두시면 되겠죠.
 
 !!! important
 
-    If you do not own a domain, do not use it for your top level package. It is perfectly acceptable to start your package with anything, such as your name/nickname, or the name of the mod.
+    당신이 해당 도메인(domain)을 가지고 있지 않은 경우, 그 도메인을 최상위 패키지로 사용하지 마세요. 패키지는 무엇으로 하든 유일하기만 하면 상관 없습니다. 이름/닉네임이나 모드의 이름으로 해도 됩니다.
 
-After the top level package (if you have one) you append a unique name for your mod, such as `examplemod`. In our case it will end up as `com.example.examplemod`.
+최상위 패키지를 정한 후에는, 그 하위에 모드의 이름으로 패키지를 만드는 것을 추천합니다. 예를 들어, 예제 모드 `examplemod`의 경우 이 패키지는 `com.example.examplemod`이 됩니다.
 
-The Mod File
+모드 파일
 ------------
 
-Generally, we'll start with a file named after your mod, and put into your package. This is the *entry point* to your mod
-and will contain some special indicators marking it as such.
+일반적으로, 모드 제작은 해당 패키지에 모드 관련 이름의 파일을 만드는 것으로 시작합니다. 이것은 당신의 모드의 *시작점*이며, 이를 지정하는 독특한 몇몇 지표들(indicators)을 갖게 될 것입니다.
 
-What is `@Mod`?
+`@Mod`란?
 -------------
 
-This is an annotation indicating to the Forge Mod Loader that the class is a Mod entry point. It contains various metadata about the mod. It also designates the class that will receive `@EventHandler` events. More information can be found at... (Coming Soon)
+`@Mod`는 Forge Mod Loader에게 이 클래스가 모드의 시작점이라 지시해 주는 annotation입니다. 이 지시자는 이 모드에 대한 다양한 추가 정보들을 명시하며, 이 클래스가 `@EventHandler` 이벤트를 받도록 해 줍니다. 더 많은 정보는... (곧 나옵니다)
 
-You can find an example mod in the [Forge src download](http://files.minecraftforge.net/).
+예제 모드는 [Forge 소스 다운로드](http://files.minecraftforge.net/)에서 찾아보실 수 있습니다.
 
-Keeping Your Code Clean Using Sub-packages
+하위 패키지들을 이용해 코드 정리하기
 ------------------------------------------
 
-Rather than clutter up a single class and package with everything, it is recommended you break your mod into subpackages.
+모드 전체를 하나의 클래스 혹은 패키지에 담는 것보다는, 여러 하위 패키지들로 나누는 것을 추천합니다.
 
-A common subpackage strategy has packages for `common` and `client` code, which is code that can be run on server/client and client, respectively. Inside the `common` package would go things like Items, Blocks, and Tile Entities (which can each in turn be another subpackage). Things like GUIs and Renderers would go inside the `client` package.
+보통 패키지는 `common`과 `client`로 나누는 경우가 꽤 있는데, 이때 `common`에는 server/client 모두에서 돌아갈 수 있는 코드가, `client`는 client에서만 돌아갈 수 있는 코드가 있게 됩니다. 따라서 일반적으로 `common` 패키지에서는 아이템, 블록, 그리고 타일 엔티티 등이 들어가며, GUI나 Renderers 등지는 `client` 패키지에 들어갑니다.
 
 !!! note
 
-    This package style is only a suggestion, though it is a commonly used style. Feel free to use your own packaging system.
+    여기서 소개한 패키지 나누는 방법은 일종의 제안일 뿐이며, 당신만의 방법으로 패키지를 나누셔도 전혀 상관 없습니다.
 
-By keeping your code in clean subpackages, you can grow your mod much more organically.
+코드를 깔끔히 하위 패키지들로 나누어 정리함으로서, 당신은 모드를 조직적인 측면에서 더 발전시킬 수 있습니다.
 
-Class Naming Schemes
+클래스 이름짓기
 --------------------
 
-A common class naming scheme allows easier deciphering of what a class is, and also makes it easier for someone developing with your mod to find things.
+일반적인 클래스 이름짓기 방식을 사용하면, 해당 클래스가 하는 일을 더 쉽게 해석할 수 있을 뿐 아니라 당신의 모드에 대한 호환성 작업도 더 쉬워집니다.
 
-For Example:
+다음은 이 방식의 예제들입니다:
 
-* An `Item` called `PowerRing` would be in an `item` package, with a class name of `ItemPowerRing`.
-* A `Block` called `NotDirt` would be in a `block` package, with a class name of `BlockNotDirt`.
-* Finally, a `TileEntity` for a block called `SuperChewer` would be a `tile` or `tileentity` package, with a class name of `TileSuperChewer`.
+* `PowerRing` 이라는 이름의 `아이템(Item)`은 `item` 패키지 안에, `ItemPowerRing`이라는 클래스 이름을 갖습니다.
+* `NotDirt`이라는 이름의 `블록(Block)`은 `block` 패키지 안에, `BlockNotDirt`라는 클래스 이름을 갖습니다.
+* 마지막으로, `SuperChewer`이라는 이름의 `타일엔티티(TileEntity)`는 `tile` 혹은 `tileentity` 패키지 안에, `TileSuperChewer`라는 이름을 갖습니다.
 
-Prepending your class names with what *kind* of object they are makes it easier to figure out what a class is, or guess the class for an object.
+이렇게 클래스 이름 앞에 그 *종류*를 붙임으로써, 그 역할을 더 쉽게 이해할 수 있도록 만들 수 있습니다.
