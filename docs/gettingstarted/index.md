@@ -29,7 +29,7 @@ Forge 모드 제작 시작하기
     GC overhead limit exceeded
     ```
 
-    `org.gradle.jvmargs=-Xmx2G`를 `~/.gradle/gradle.properties` 파일에 (없으면 파일을 생성해서) 추가로 적어넣어 gradle에 더 많은 RAM을 할당해 주세요. 여기서 `~` 는 당신의 유저 [home directory][홈 디렉토리(home directory)] 를 의미합니다.
+    `org.gradle.jvmargs=-Xmx2G`를 `~/.gradle/gradle.properties` 파일에 (없으면 파일을 생성해서) 추가로 적어넣어 gradle에 더 많은 RAM을 할당해 주세요. 여기서 `~` 는 당신의 유저 [홈 디렉토리(home directory)][home directory] 를 의미합니다.
 
 
 [home directory]: https://ko.wikipedia.org/wiki/%ED%99%88_%EB%94%94%EB%A0%89%ED%84%B0%EB%A6%AC#%EC%9A%B4%EC%98%81%20%EC%B2%B4%EC%A0%9C%EB%B3%84%20%EA%B8%B0%EB%B3%B8%20%ED%99%88%20%EB%94%94%EB%A0%89%ED%84%B0%EB%A6%AC "운영 체제별 홈 디렉토리"
