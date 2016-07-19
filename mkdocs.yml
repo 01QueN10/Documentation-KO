@@ -5,7 +5,7 @@ pages:
   - 시작하기:
     - Home: 'gettingstarted/index.md'
     - 모드 기본구조 작성하기: 'gettingstarted/structuring.md'
-    - Forge 업데이트 확인: 'gettingstarted/autoupdate.md'
+    - Forge 내장 업데이트 표시기: 'gettingstarted/autoupdate.md'
   - 블록(Block):
     - Home: 'blocks/blocks.md'
     - 상호작용: 'blocks/interaction.md'
