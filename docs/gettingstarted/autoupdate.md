@@ -1,42 +1,42 @@
-Forge Update Checker
+Forge 내장 업데이트 표시기
 ====================
 
-Forge provides a very lightweight opt-in update-checking framework. All it does is check for updates, then show a flashing icon on the Mods button of the main menu and mod list if any mods have an available update, along with the respective changelogs. It *does not* download updates automatically.
+Forge는 간단한 opt-in 방식의 모드 업데이트 표시 체계를 제공합니다. 이 시스템은 업데이트가 있는지 확인하고, 업데이트가 있는 경우 메인 메뉴의 모드 버튼에 반짝이는 아이콘을 띄우며, 모드 목록(mod list) 중에서도 업데이트된 모드 옆에 업데이트 아이콘과 함께 변경 기록(changelog)를 띄웁니다. 단, 모드 업데이트를 자동으로 다운로드하지는 *않습니다*.
 
-Getting Started
+시작하기
 ---------------
 
-The first thing you want to do is specify the `updateJSON` parameter in your `@Mod` annotation. The value of this parameter should be a valid URL pointing to an update JSON file. This file can be hosted on your own web server, or on GitHub, or wherever you want, as long as it can be reliably reached by all users of your mod.
+먼저, `@Mod` annotation 중 `updateJSON` 인자의 값을 Update JSON 파일이 담긴 URL로 설정하세요. 이 파일은, 모든 유저들이 안정적으로 접근할 수 있는 한, 당신 소유의 웹 서버 뿐만 아니라 GitHub 등 어디에서든 제공할 수 있습니다.
 
-Update JSON format
+업데이트 JSON 형식
 ------------------
 
-The JSON itself has a relatively simple format, given as follows:
+업데이트 JSON은 다음과 같이 간단한 형식을 지니고 있습니다:
 
 ```Javascript
 {
-  "homepage": "<homepage/download page for your mod>",
-  "<mcversion>": {
-    "<modversion>": "<changelog for this version>", 
-    // List all versions of your mod for the given Minecraft version, along with their changelogs
+  "homepage": "<홈페이지 혹은 모드 다운로드 페이지>",
+  "<minecraft 버전>": {
+    "<mod 버전>": "<이 버전의 변경 기록(changelog)>", 
+    // 여기에 이 마인크래프트 버전에 대한 모든 모드 버전들의 목록을 변경 기록과 함께 기록하시면 됩니다.
     ...
   },
   ...
   "promos": {
-    "<mcversion>-latest": "<modversion>",
-    // Declare the latest "bleeding-edge" version of your mod for the given Minecraft version
-    "<mcversion>-recommended": "<modversion>",
-    // Declare the latest "stable" version of your mod for the given Minecraft version
+    "<minecraft 버전>-latest": "<모드 버전>",
+    // 이 마인크래프트 버전에 대한 최신 불안정 버전을 명시하세요.
+    "<minecraft 버전>-recommended": "<모드 버전>",
+    // 이 마인크래프트 버전에 대한 최신 안정 버전을 명시하세요.
     ...
   }
 }
 ```
 
-This is fairly self-explanatory, but some notes:
- 
-* The link under `homepage` is the link the user will be shown when the mod is outdated.
-* Forge uses an internal algorithm to determine whether one version String of your mod is "newer" than another. Most versioning schemes should be compatible, but see the `ComparableVersion` class if you are concerned about whether your scheme is supported. Adherence to [semantic versioning](http://semver.org/) is highly recommended.
-* The changelog string can be separated into lines using `\n`. Some prefer to include a abbreviated changelog, then link to an external site that provides a full listing of changes.
-* Manually inputting data can be chore. You can configure your `build.gradle` to automatically update this file when building a release, as Groovy has native JSON parsing support. Doing this is left as an exercise to the reader.
+여기서 몇몇 주의할 점이 있습니다:
 
-Two concrete examples can be seen here for [Charset](https://gist.githubusercontent.com/Meow-J/fe740e287c2881d3bf2341a62a7ce770/raw/bf829cdefc84344d86d1922e2667778112b845b1/update.json) and [Botania Unofficial](https://gist.githubusercontent.com/Meow-J/1299068c775c2b174632534a18b65fb8/raw/42c578cf2303aa76d8900f5fdc6366122549d2a8/update.json).
+* `homepage` 링크는 모드가 업데이트된 경우 유저에게 보여질 링크입니다.
+* Forge는 내부적인 알고리즘을 사용하여 새로운 모드 버전을 결정합니다. 대부분분의 버전 매기기 방식은 호환됩니다만, 제대로 확인하고 싶다면 forge의 `ComparableVersion` 클래스를 참고해 주세요. 가능하면 [유의적 버전(semantic versioning)](http://semver.org/lang/ko/) 방식을 이용해 주세요.
+* 변경 로그에 들어가는 문자열은 `\n` 개행 문자로 줄을 나눌 수 있습니다. 요약본을 사용하기를 원한다면, 외부 사이트에 전체 변경 로그를 담고 링크를 주시면 됩니다.
+* 업데이트 내용을 하나하나 입력하는 것은 지루한 일이 될 수 있습니다. 대신 자동으로 빌드 시 업데이트 JSON을 설정하도록 할 수 있는데, Groovy가 JSON 파싱(parsing)을 기본적으로 내장하고 있기 때문에 `build.gradle`을 적절히 설정하면 됩니다. 자세한 방법은 이 설명서의 범위를 넘어가니, 필요하다면 연습삼아 해 보세요.
+
+실제 모드에서 사용되고 있는 예제들로, [Charset](https://gist.githubusercontent.com/Meow-J/fe740e287c2881d3bf2341a62a7ce770/raw/bf829cdefc84344d86d1922e2667778112b845b1/update.json) 및 [Botania Unofficial](https://gist.githubusercontent.com/Meow-J/1299068c775c2b174632534a18b65fb8/raw/42c578cf2303aa76d8900f5fdc6366122549d2a8/update.json)가 있습니다.
