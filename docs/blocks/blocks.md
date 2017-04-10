@@ -15,7 +15,7 @@
 - `setSoundType` - 블록을 때리거나, 캐거나, 설치할 때 나는 소리를 설정합니다. 인자로서 `SoundType`을 필요로 하는데, 이에 관해서는 [sounds] 문서를 참조해 주시기 바랍니다.
 - `setLightLevel` - 블록이 발산하는 빛의 양을 설정합니다. **참고:** 이 메소드는 0부터 1의 값을 갖습니다. (0부터 15가 아닙니다) 이 값을 계산하기 위해서는, 블록이 발산할 밝기 레벨 값을 정하고 16으로 나누면 됩니다. 예를 들어, 밝기 레벨 5만큼의 빛을 발산하는 블록은 이 메소드에 `5 / 16f`의 값을 인자로 넘겨주어야 합니다.
 - `setLightOpacity` - 빛이 이 블록을 통과하면서 밝기 레벨이 얼마나 줄어들지를 설정합니다. `setLightLevel`과는 달리 이 값은 0부터 15까지의 범위를 갖습니다. 예를 들어, 값을 `3`으로 설정한 경우, 이 블록을 통과할 때마다 밝기 레벨이 3씩 감소하게 됩니다.
-- `setUnlocalizedName` - 번역 파일에 쓰일 이름을 설정합니다. 번역을 위해, 이 이름의 앞에는 'tile.'가 붙게 되고 끝에는 '.name'이 붙게 됩니다. **참고:** 사용자가 지정하는 unlocalizedName은 'tile.'이나 '.name'을 포함하지 않아야 합니다. 예를 들어 'setUnlocalizedName("block_of_charcoal")'의 실제 unlocalizedName 값은 "tile.block_of_charcoal.name"이 될 것입니다. 번역에 대한 심화 내용은 뒤에 다시 설명하게 될 겁니다.
+- `setUnlocalizedName` - 번역 파일에 쓰일 이름을 설정합니다. 번역을 위해, 이 이름의 앞에는 'tile.'가 붙게 되고 끝에는 '.name'이 붙게 됩니다. **참고:** 사용자가 지정하는 unlocalizedName은 'tile.'이나 '.name'을 포함하지 않아야 합니다. 예를 들어 `setUnlocalizedName("block_of_charcoal")`의 실제 unlocalizedName 값은 "tile.block_of_charcoal.name"이 될 것입니다. 번역에 대한 심화 내용은 뒤에 다시 설명하게 될 겁니다.
 - `setCreativeTab` - 어떤 크리에이티브 탭에 이 블럭이 위치할 것인지를 정합니다. 만약 이 블럭이 크리에이티브 탭에 표시되어야 한다면 이 과정을 반드시 거쳐야 합니다. 크리에이티브 탭의 목록은 'CreativeTabs' 클래스에서 찾을 수 있습니다.
 
 이 모든 메소드는 *연속됩니다*. 이것은 메소드들을 순서대로 모두 각각 지정할 수 있다는 것입니다. `Block#registerBlocks`를 참고해 주십시오.
